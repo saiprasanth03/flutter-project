@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -31,11 +31,21 @@ jobs:
           channel: stable
           cache: true
 
-      - name: Add Web platform files
-        run: flutter create . --platforms web
+      - name: Generate Flutter platform scaffolding
+        run: flutter create . --platforms=android,ios,linux,macos,web,windows
 
       - name: Get dependencies
         run: flutter pub get
+
+      - name: Commit generated platform files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- android ios linux macos web .metadata .gitignore analysis_options.yaml
+          if ! git diff --cached --quiet; then
+            git commit -m "Add Flutter platform scaffolding [skip ci]"
+            git push origin HEAD:main
+          fi
 
       - name: Build for GitHub Pages
         run: flutter build web --release --base-href /flutter-project/
