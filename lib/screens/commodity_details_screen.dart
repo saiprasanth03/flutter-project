@@ -46,7 +46,7 @@ class _CommodityDetailsScreenState extends State<CommodityDetailsScreen> {
         title: const Text('Commodity details'),
         actions: [
           IconButton(
-            tooltip: isFavorite ? 'Remove from favourites' : 'Add to favourites',
+            tooltip: _isFavorite ? 'Remove from favourites' : 'Add to favourites',
             onPressed: _toggleFavorite,
             icon: Icon(_isFavorite ? Icons.favorite : Icons.favorite_border, color: _isFavorite ? AppColors.negative : AppColors.muted),
           ),

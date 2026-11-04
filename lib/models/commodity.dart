@@ -1,4 +1,4 @@
-import ''package:flutter/material.dart'';
+import 'package:flutter/material.dart';
 
 class CommodityPrice {
   const CommodityPrice({required this.minimum, required this.maximum, required this.modal, required this.previous, required this.unit, required this.history});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/commodity.dart';
 import '../utils/app_colors.dart';
-import 'commodity_card.dart';
+import '../utils/formatters.dart';
 
 class CommodityTable extends StatelessWidget {
   const CommodityTable({super.key, required this.commodities, required this.marketName, required this.favorites, required this.onOpen, required this.onFavorite});
