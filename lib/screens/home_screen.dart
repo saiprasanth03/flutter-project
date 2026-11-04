@@ -3,6 +3,7 @@ import '../data/sample_data.dart';
 import '../models/commodity.dart';
 import '../utils/app_breakpoints.dart';
 import '../utils/app_colors.dart';
+import '../utils/formatters.dart';
 import '../widgets/app_sidebar.dart';
 import '../widgets/category_filter.dart';
 import '../widgets/commodity_card.dart';
