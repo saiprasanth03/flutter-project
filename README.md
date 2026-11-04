@@ -1,34 +1,86 @@
 # Farmer Market Price Board
 
-## Problem Statement
-Farmers and consumers benefit from understanding how everyday agricultural products are priced across local markets. This student project presents a clear, responsive board using sample data.
+## Project Description
+A responsive Flutter dashboard for exploring demonstration agricultural commodity prices across six Indian markets. All prices are local sample values; the application does not connect to live government market feeds or an external API.
+
+## Objectives
+- Present minimum, maximum, modal, and previous prices in a readable format.
+- Let users search, filter, sort, compare, and save commodities.
+- Demonstrate distinct mobile, tablet, and desktop layouts with Flutter widgets.
 
 ## Features
-- Search products by name and combine the search with a category filter.
-- Browse sample prices by Local Market, Main Market, or Farmers Market.
-- View price trends, last-updated labels, summary statistics, and product details.
-- Responsive layouts for phones, tablets, and desktop screens.
-- Clearly labeled demonstration prices; no live market feed is connected.
+- Dashboard statistics, featured prices, and recent sample updates.
+- 15 commodities across Cereals, Vegetables, Fruits, Pulses, Spices, and Cash Crops.
+- Market selector for Guntur, Vijayawada, Visakhapatnam, Hyderabad, Warangal, and Kurnool. Market choice changes the displayed sample prices.
+- Case-insensitive live search, category filters, and five sorting options.
+- Favourites that update immediately during the session.
+- Commodity details with price history drawn using Flutter's `CustomPainter`.
+- An SDG 2 section with a modest, educational relevance statement.
 
-## Flutter Concepts Used
-Material 3, `MaterialApp`, `Scaffold`, `ThemeData`, `LayoutBuilder`, `GridView.builder`, `ListView`, `Card`, `TextField`, `StatefulWidget`, `StatelessWidget`, `showDialog`, and reusable widgets.
+## Technologies Used
+- Flutter and Dart
+- Material 3
+- Flutter SDK widgets only; no external runtime packages, backend, database, or API
+
+## Flutter Concepts Demonstrated
+`MaterialApp`, `ThemeData`, `Scaffold`, `AppBar`, `NavigationBar`, `NavigationRail`, responsive sidebar, `StatelessWidget`, `StatefulWidget`, `LayoutBuilder`, `MediaQuery`, `GridView.builder`, `ListView.builder`, `DataTable`, `Card`, `Row`, `Column`, `Expanded`, `TextField`, `DropdownButtonFormField`, `setState`, `Navigator`, and reusable widgets.
 
 ## Responsive Breakpoints
-- Mobile: < 600px — single-column cards and compact, vertically arranged controls.
-- Tablet: 600–1023px — two-column cards and wider shared search/filter rows.
-- Desktop: >= 1024px — three-column cards in a centered wide content area.
+- **Mobile:** below 600px. Compact app bar, bottom navigation, full-width search, horizontal category filters, and a single-column commodity list.
+- **Tablet:** 600–1023px. Navigation rail, two-column commodity grid, and multi-column dashboard statistics.
+- **Desktop:** 1024px and above. Persistent sidebar, wide dashboard sections, horizontal statistics, and a sortable/filterable commodity table layout.
+
+## Folder Structure
+```text
+lib/
+  main.dart
+  models/
+    commodity.dart
+    market.dart
+  data/
+    sample_data.dart
+  screens/
+    home_screen.dart
+    commodity_details_screen.dart
+  widgets/
+    app_sidebar.dart
+    category_filter.dart
+    commodity_card.dart
+    commodity_table.dart
+    dashboard_stat_card.dart
+    price_history_chart.dart
+  theme/
+    app_theme.dart
+  utils/
+    app_breakpoints.dart
+    app_colors.dart
+    formatters.dart
+```
+
+The repository also includes generated Flutter platform scaffolding for Android, iOS, Linux, macOS, Web, and Windows. The GitHub Actions workflow builds and publishes the Web target.
+
+## How to Run
+With an existing Flutter SDK installed, from the project directory run:
+
+```bash
+flutter pub get
+flutter run
+```
+
+To run in Chrome:
+
+```bash
+flutter run -d chrome
+```
+
+The GitHub Actions workflow builds Flutter Web and deploys it to GitHub Pages without requiring Flutter on the Windows computer.
 
 ## SDG 2 Relevance
-SDG 2 is Zero Hunger. Accessible agricultural market-price information can improve awareness of food markets and is conceptually related to food security. This sample application does not measure or claim a real-world impact.
+SDG 2 is Zero Hunger. Accessible sample price comparisons illustrate how market information can help farmers understand selling options and market conditions. This academic application does not claim or measure real-world impact.
 
-## Flutter Web Testing
-The `Deploy Flutter Web` GitHub Actions workflow creates standard platform folders for Android, iOS, Linux, macOS, Web, and Windows on its first run. It commits those generated folders to `main` and builds and deploys the web app. No Flutter or Dart installation is needed on the Windows computer.
-
-For a local Flutter environment, run `flutter pub get` and `flutter run -d chrome` from the project folder. To test in a browser-based Flutter sandbox, import the GitHub repository into Zapp!; it supports multi-file Flutter projects and browser previews.
 ## Screenshots
 Add screenshots demonstrating:
-1. Mobile layout (approximately 390px wide).
-2. Tablet layout (approximately 768px wide).
-3. Desktop layout (approximately 1440px wide).
-4. Product details dialog and search/category filtering.
-
+1. Mobile at approximately 390px.
+2. Tablet at approximately 768px.
+3. Desktop at approximately 1440px.
+4. Commodity detail/history and search, category, sorting, or favourites.

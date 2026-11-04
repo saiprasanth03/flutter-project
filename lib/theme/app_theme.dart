@@ -1,45 +1,44 @@
 import 'package:flutter/material.dart';
+import '../utils/app_colors.dart';
 
 class AppTheme {
-  static const green = Color(0xFF286647);
-  static const ink = Color(0xFF17251D);
-  static const muted = Color(0xFF69766E);
-  static const canvas = Color(0xFFF5F7F2);
-
-  static final light = ThemeData(
-    useMaterial3: true,
-    colorScheme: ColorScheme.fromSeed(seedColor: green, brightness: Brightness.light)
-        .copyWith(surface: Colors.white, primary: green, onSurface: ink),
-    scaffoldBackgroundColor: canvas,
-    appBarTheme: const AppBarTheme(
-      backgroundColor: canvas,
-      foregroundColor: ink,
-      elevation: 0,
-      centerTitle: false,
-      titleTextStyle: TextStyle(color: ink, fontSize: 17, fontWeight: FontWeight.w700),
-    ),
-    cardTheme: CardThemeData(
-      color: Colors.white,
-      elevation: 1,
-      shadowColor: const Color(0x1A17251D),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-      margin: EdgeInsets.zero,
-    ),
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-      fillColor: Colors.white,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: BorderSide.none),
-      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: Color(0xFFE5EAE4))),
-      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: green, width: 1.5)),
-    ),
-    chipTheme: ChipThemeData(
-      shape: const StadiumBorder(),
-      side: BorderSide.none,
-      labelStyle: const TextStyle(fontWeight: FontWeight.w600),
-      backgroundColor: Colors.white,
-      selectedColor: const Color(0xFFDCEBDF),
-      padding: const EdgeInsets.symmetric(horizontal: 5),
-    ),
-  );
+  static ThemeData get light => ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.forest).copyWith(
+          primary: AppColors.forest,
+          secondary: AppColors.leaf,
+          surface: Colors.white,
+          onSurface: AppColors.ink,
+        ),
+        scaffoldBackgroundColor: AppColors.background,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.background,
+          foregroundColor: AppColors.ink,
+          elevation: 0,
+          centerTitle: false,
+          titleTextStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: AppColors.ink),
+        ),
+        cardTheme: CardThemeData(
+          color: Colors.white,
+          elevation: 1,
+          shadowColor: Color(0x120E2813),
+          margin: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(18))),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: BorderSide.none),
+          enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: AppColors.border)),
+          focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: AppColors.forest, width: 1.5)),
+        ),
+        chipTheme: ChipThemeData(
+          selectedColor: const Color(0xFFDDEEDD),
+          backgroundColor: Colors.white,
+          side: const BorderSide(color: AppColors.border),
+          shape: const StadiumBorder(),
+          labelStyle: const TextStyle(fontWeight: FontWeight.w600),
+        ),
+      );
 }
